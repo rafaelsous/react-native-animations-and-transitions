@@ -1,21 +1,40 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from "@react-navigation/stack";
+import React from "react";
+import { StatusBar } from "react-native";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import LoadAssets from "./src/components/LoadAssets";
+import Transitions from "./src/screens/Transitions";
+import { StyleGuide, Routes, cardAssets } from "./src/components";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const fonts = {
+  "SFProText-Bold": require("./src/assets/fonts/SF-Pro-Text-Bold.otf"),
+  "SFProText-Semibold": require("./src/assets/fonts/SF-Pro-Text-Semibold.otf"),
+  "SFProText-Regular": require("./src/assets/fonts/SF-Pro-Text-Regular.otf"),
+};
+
+const assets = [...cardAssets];
+
+const Stack = createStackNavigator<Routes>();
+
+const AppNavigator = () => (
+  <Stack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: StyleGuide.palette.primary,
+        borderBottomWidth: 0,
+      },
+      headerTintColor: "white",
+    }}
+  >
+    <Stack.Screen name="Transitions" component={Transitions} />
+  </Stack.Navigator>
+);
+
+const App: React.FC = () => (
+  <LoadAssets {...{ fonts, assets }}>
+    <StatusBar barStyle="light-content" />
+    <AppNavigator />
+  </LoadAssets>
+);
+
+export default App;
