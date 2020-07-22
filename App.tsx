@@ -32,7 +32,11 @@ const AppNavigator = () => (
 
 const App: React.FC = () => (
   <LoadAssets {...{ fonts, assets }}>
-    <StatusBar barStyle="light-content" />
+    <StatusBar
+      barStyle="light-content"
+      backgroundColor="transparent"
+      translucent
+    />
     <AppNavigator />
   </LoadAssets>
 );
