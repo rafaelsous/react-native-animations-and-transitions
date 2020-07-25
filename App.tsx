@@ -1,9 +1,10 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
-import { StatusBar } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 import LoadAssets from "./src/components/LoadAssets";
-import Transitions from "./src/screens/Transitions";
+// import Transitions from "./src/screens/Transitions";
+import { Blowing } from "./src/screens/Animations";
 import { StyleGuide, Routes, cardAssets } from "./src/components";
 
 const fonts = {
@@ -26,17 +27,20 @@ const AppNavigator = () => (
       headerTintColor: "white",
     }}
   >
-    <Stack.Screen name="Transitions" component={Transitions} />
+    {/* <Stack.Screen name="Transitions" component={Transitions} /> */}
+    <Stack.Screen
+      name="Blowing"
+      component={Blowing}
+      options={{
+        headerShown: false,
+      }}
+    />
   </Stack.Navigator>
 );
 
 const App: React.FC = () => (
   <LoadAssets {...{ fonts, assets }}>
-    <StatusBar
-      barStyle="light-content"
-      backgroundColor="transparent"
-      translucent
-    />
+    <StatusBar style="light" translucent />
     <AppNavigator />
   </LoadAssets>
 );
