@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useRef, useState } from "react";
 import {
   View,
@@ -53,26 +54,26 @@ const quotes = [
       "If life were predictable it would cease to be life, and be without flavor.",
     author: "Eleanor Roosevelt",
   },
-  // {
-  //   quote:
-  //     "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough.",
-  //   author: "Oprah Winfrey",
-  // },
-  // {
-  //   quote:
-  //     "If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.",
-  //   author: "James Cameron",
-  // },
-  // {
-  //   quote: "Life is what happens when you're busy making other plans.",
-  //   author: "John Lennon",
-  // },
+  {
+    quote:
+      "If you look at what you have in life, you'll always have more. If you look at what you don't have in life, you'll never have enough.",
+    author: "Oprah Winfrey",
+  },
+  {
+    quote:
+      "If you set your goals ridiculously high and it's a failure, you will fail above everyone else's success.",
+    author: "James Cameron",
+  },
+  {
+    quote: "Life is what happens when you're busy making other plans.",
+    author: "John Lennon",
+  },
 ];
 
 const colors = [
   {
     initialBgColor: "goldenrod",
-    bgColor: "#222",
+    bgColor: "goldenrod",
     nextBgColor: "#222",
   },
   {
@@ -244,7 +245,7 @@ const Blowing: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar hidden translucent backgroundColor="transparent" />
+      <StatusBar translucent backgroundColor="transparent" />
       <Circle
         {...{ index }}
         {...{ quotes }}
