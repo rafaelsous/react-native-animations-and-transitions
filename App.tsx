@@ -6,7 +6,6 @@ import LoadAssets from "./src/components/LoadAssets";
 // import Transitions from "./src/screens/Transitions";
 import { Blowing } from "./src/screens/Animations";
 import { StyleGuide, Routes, cardAssets } from "./src/components";
-import JellyScroll from "./src/screens/Animations/JellyScroll";
 
 const fonts = {
   "SFProText-Bold": require("./src/assets/fonts/SF-Pro-Text-Bold.otf"),
@@ -29,20 +28,11 @@ const AppNavigator = () => (
     }}
   >
     {/* <Stack.Screen name="Transitions" component={Transitions} /> */}
-    {/* <Stack.Screen
+    <Stack.Screen
       name="Blowing"
       component={Blowing}
       options={{
         headerShown: false,
-      }}
-    /> */}
-
-    <Stack.Screen
-      name="JellyScroll"
-      component={JellyScroll}
-      options={{
-        headerTitle: "Jelly Scroll",
-        headerTitleAlign: "center",
       }}
     />
   </Stack.Navigator>
